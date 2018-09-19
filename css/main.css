@@ -1,0 +1,29 @@
+canvas{
+  height:600px;
+  width: 1300px;
+  margin: 50px;
+  border: 1px solid black;
+}
+
+#hitCanv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height:600px;
+  width: 1300px;
+  margin: 50px;
+  background-color: white;
+}
+
+#styleCanv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height:600px;
+  width: 1300px;
+  margin: 50px;
+  border: 1px solid black;
+  background-color: #ae83aa;
+}
