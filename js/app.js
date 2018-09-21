@@ -105,7 +105,6 @@ document.addEventListener('DOMContentLoaded',() => {
   }
 
   function projectile(){
-    // drawProj(x,83,10,10);
     if (count == 0) {
       y = 83;
       c.clearRect(0,0,canvas.width,canvas.height);
@@ -133,12 +132,9 @@ document.addEventListener('DOMContentLoaded',() => {
     } else if (score > 2000 && score <= 3000){
       x = x - 5;
     } else {
-      x = x - 7;
+      x = x - 6;
     }
   }
-
-
-
   function drawStandFrame(frameX,frameY,canvasX,canvasY){
     width = 47;
     height = 90;
@@ -159,10 +155,6 @@ document.addEventListener('DOMContentLoaded',() => {
     k.clearRect(0, 0, canvas.width, canvas.height);
     k.drawImage(img,392 + frameX*width, 418 + frameY*height,width,height,canvasX,canvasY,width,height);
   }
-  // function drawProjFrame(frameX,frameY,canvasX,canvasY){
-  //   h.clearRect(frameX, 83 ,canvas.width, canvas.height);
-  //   h.drawImage(img,242 + frameX*width, 389 + frameY*height,width,height,canvasX,canvasY,width,height);
-  // }
 
   document.onkeypress = (e) => {
     key = e.keyCode;
@@ -203,7 +195,6 @@ document.addEventListener('DOMContentLoaded',() => {
     if (stepLoopIndex >= standLoop.length) {
       stepLoopIndex = 0;
     }
-    //window.requestAnimationFrame(projectile);
     init();
   }
   function punch() {
@@ -216,7 +207,6 @@ document.addEventListener('DOMContentLoaded',() => {
     }
     frameCount = 0;
     //Clear area
-    //c.clearRect(0, 0, canvas.width, canvas.height);
     // loop through drawFrame until currentLoopIndex finished
     drawPunchFrame(punchLoop[punchLoopIndex], 0, 0, yPos);
     punchLoopIndex++;
@@ -245,7 +235,6 @@ document.addEventListener('DOMContentLoaded',() => {
     }
     frameCount = 0;
     //Clear area
-    //c.clearRect(0, 0, canvas.width, canvas.height);
     // loop through drawFrame until currentLoopIndex finished
     drawKickFrame(kickLoop[kickLoopIndex], 0, 0, yPos);
     kickLoopIndex++;
