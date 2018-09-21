@@ -28,91 +28,56 @@ Github Pages: <https://samgilbert95.github.io/sparta-project-2/>
 ### Codeblocks
 ---
 ##### HTML Example Code
-###### Leaderboard In Index
+###### Canvas Creation
 ```html
-   <section id="menu">
-    <section id="container">
-      <h1 class="menuBtn"> Music Quiz</h1>
-      <a href="game.html" class="menuBtn">Game</a>
-      <a id="inst" class="menuBtn">Instructions</a>
-      <a id="leadBtn"class="menuBtn">Leaderboard</a>
-       <!-- href="lead.html"  -->
-      <section id="instructTest">
-        <h3 class="sectionHead">Instructions</h3>
-        <div>
-          <p>When the page loads, You will be presented with a
-          randomly generated song. In order to score a point,
-          you will need to guess the name of the song correctly</p>
-        </div>
-        <div>
-          <p> As time passes, pieces of the album cover will be
-          revealed.However, the longer you wait, the less points you
-          will score.</p>
-        </div>
-        <div>
-          <p>When you're sure of your answer, press the button to
-          stop the timer and get your points. A wrong answer is 0
-          points so think carefully</p>
-        </div>
-        <a id='returnInfo'> I understand </a>
-      </section>
-      <section id="leadSect">
-        <h3 class="sectionHead">Leaderboard</h3>
-        <ul id="lead">
-
-        </ul>
-        <content id="leadBtns">
-          <a id="returnLead">Back</a>
-          <a id="clearStore"> Clear Leaderboard</a>
-        </content>
-      </section>
-    </section>
-  </section>
+<canvas id='playerCanv'></canvas>
+<canvas id="hitCanv"></canvas>
+<canvas id='styleCanv'></canvas>
 ```
 ##### CSS Example Code
-###### Fullscreen Menu Video
+###### Canvas Stylings
 ```css
-#myVideo{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-}
-```
-###### Animation Examples
-```css
-@-webkit-keyframes flashCorrect {
-	0% { background-color: lightgray; }
-	50% { background-color: green; }
-	100% { background-color: lightgray; }
-}
-
-@-webkit-keyframes scorePulse {
-	0% { font-size: 1.3em;}
-	50% { font-size: 1.6em; }
-	100% { font-size: 1.3em; }
+#styleCanv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height:600px;
+  width: 1300px;
+  margin: 50px;
+  border: 10px solid;
+  border-style: inset;
+  background-size: cover;
+  background-image: url('../images/back.png');
 }
 ```
 ##### Javascript Example Code
-###### Populate Grid
+###### Function for drawing standing animation
 ```javascript
-imageGrid.populate = () => {
-    for (let i = 0;i <10;i++){
-      const newBlock = document.createElement('div');
-      newBlock.setAttribute('class','row');
-      gridArea.appendChild(newBlock);
-      for (var j = 0; j< 10;j++){
-        const newElement = document.createElement('div');
-        newElement.setAttribute('class','block');
-        newBlock.appendChild(newElement);
-        gridArray.push(newElement);
-      }
+function drawStandFrame(frameX,frameY,canvasX,canvasY){
+    width = 47;
+    height = 90;
+    yPos = 70;
+    k.drawImage(img,3 + frameX*width,3 + frameY*height,width,height,canvasX,canvasY,width,height);
+  }
+```
+###### Animation Management on keypress
+```javascript
+  function init() {
+    img.checkHurt();
+    if (key === 97){
+      window.cancelAnimationFrame(step);
+      window.cancelAnimationFrame(kick);
+      window.requestAnimationFrame(punch);
+    } else if (key === 115) {
+      window.cancelAnimationFrame(step);
+      window.cancelAnimationFrame(punch);
+      window.requestAnimationFrame(kick);
+    } else {
+      window.cancelAnimationFrame(punch);
+      window.cancelAnimationFrame(kick);
+      window.requestAnimationFrame(step);
     }
-    imageGrid.getSong();
   }
 ```
 
